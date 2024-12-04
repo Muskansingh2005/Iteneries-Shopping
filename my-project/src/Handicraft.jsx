@@ -3,15 +3,12 @@ import { motion } from "framer-motion";
 import Handicraft from "./assets/Handicraft.png";
 const HandicraftPage = () => {
   return (
-    <div className="bg-gray-50">
+    <div className="bg-gray-50 text-center justify-center">
       {/* Header */}
-      <header className="p-4 bg-white shadow-md flex justify-between items-center">
-        <h1 className="text-2xl font-bold">Handicraft Treasures of India</h1>
-        <div className="flex gap-4">
-          <button className="text-lg">🛒</button>
-        </div>
+      <header className="p-4 bg-white shadow-md flex  justify-center">
+      <h1 className="text-2xl font-bold text-center"> Handicraft Treasures of India
+</h1>
       </header>
-
       {/* Main Content */}
       <main className="container mx-auto p-4">
         {/* Hero Section */}
@@ -48,34 +45,44 @@ const HandicraftPage = () => {
 
         {/* Categories Section */}
         <section>
-          <h2 className="text-center text-2xl font-semibold mb-6">
-            Explore by Category
-          </h2>
-          <div className="flex items-center justify-evenly gap-6 overflow-x-auto lg:overflow-visible">
-            {["Pottery", "Textiles", "Jewelry", "Woodwork", "Painting"].map(
-              (category) => (
-                <motion.div
-                  key={category}
-                  className="flex flex-col items-center gap-2 cursor-pointer"
-                  whileHover={{ scale: 1.1 }}
-                  whileTap={{ scale: 0.95 }}
-                  initial={{ opacity: 0, y: 30 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.5, delay: 0.2 }}
-                >
-                  <div className="w-20 h-20 bg-gray-200 rounded-full hover:bg-gray-300 transition-colors shadow-md"></div>
-                  <p className="text-sm font-medium">{category}</p>
-                </motion.div>
-              )
-            )}
-          </div>
-        </section>
+  <h2 className="text-center text-2xl font-semibold mb-6">
+    Explore by Category
+  </h2>
+  <div className="flex items-center justify-evenly gap-6 overflow-x-auto lg:overflow-visible">
+    {[
+      { name: "Pottery", image: "/assets/img 1.png" },
+      { name: "Textiles", image: "/assets/img 2.jpg" },
+      { name: "Jewelry", image: "/assets/img 3.png" },
+      { name: "Woodwork", image: "/assets/img 4.png" },
+      { name: "Painting", image: "/assets/img 5.png" },
+    ].map((category) => (
+      <motion.div
+        key={category.name}
+        className="flex flex-col items-center gap-2 cursor-pointer"
+        whileHover={{ scale: 1.1 }}
+        whileTap={{ scale: 0.95 }}
+        initial={{ opacity: 0, y: 30 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.5, delay: 0.2 }}
+      >
+        <div className="w-20 h-20 bg-gray-200 rounded-full hover:bg-gray-300 transition-colors shadow-md overflow-hidden">
+          <img
+            src={category.image}
+            alt={category.name}
+            className="w-full h-full object-cover"
+          />
+        </div>
+        <p className="text-sm font-medium">{category.name}</p>
+      </motion.div>
+    ))}
+  </div>
+</section>
 
         {/* Best Sellers Section */}
         <section className="mt-10">
           <h2 className="text-2xl font-semibold mb-6">Best Sellers</h2>
           <div className="grid lg:grid-cols-2 xl:grid-cols-3 gap-6">
-            {[{ name: "Terracotta Vase", rating: 4.7 }, { name: "Silk Saree", rating: 4.8 }].map((item, index) => (
+            {[{ name: "Terracotta Vase", rating: 4.7 }, { name: "Silk Saree", rating: 4.8 },{ name: "Silk Saree", rating: 4.8 }].map((item, index) => (
               <motion.div
                 key={item.name}
                 className="bg-white p-4 rounded-lg shadow-md hover:shadow-lg"
@@ -96,7 +103,7 @@ const HandicraftPage = () => {
         <section className="mt-10">
           <h2 className="text-2xl font-semibold mb-6">Special Offers</h2>
           <div className="grid lg:grid-cols-2 xl:grid-cols-3 gap-6">
-            {[{ name: "Brass Statue", discount: "25%" }, { name: "Pashmina Shawl", discount: "30%" }].map((offer, index) => (
+            {[{ name: "Brass Statue", discount: "25%" }, { name: "Pashmina Shawl", discount: "30%" },{ name: "Pashmina Shawl", discount: "30%" }].map((offer, index) => (
               <motion.div
                 key={offer.name}
                 className="bg-white p-4 rounded-lg shadow-md relative hover:shadow-lg"
